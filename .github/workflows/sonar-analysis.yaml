@@ -1,18 +1,13 @@
 name: SonarCloud Baseline Analysis
 
 on:
-  # Ejecutar en push a la rama QA
   push:
     branches:
       - QA
-
-  # Ejecutar en pull requests hacia QA
   pull_request:
     branches:
       - QA
     types: [opened, synchronize, reopened]
-
-  # Permitir ejecución manual
   workflow_dispatch:
 
 jobs:
@@ -30,7 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
-          cache: "yarn"
 
       - name: Install Dependencies
         run: yarn install
